@@ -3,6 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const grammer_1 = require("./grammer");
 let index = 1;
 let cgs = {};
+function _resetCache() {
+    index = 1;
+    cgs = {};
+}
+exports._resetCache = _resetCache;
 function parse(str) {
     if (str instanceof RegExp) {
         str = str.source;
@@ -11,8 +16,7 @@ function parse(str) {
         let ex = new TypeError('The regexp to parse must be represented as a string.');
         throw ex;
     }
-    index = 1;
-    cgs = {};
+    _resetCache();
     return grammer_1.default(str);
 }
 exports.parse = parse;

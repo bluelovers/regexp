@@ -7,6 +7,12 @@ import parser from './grammer';
 let index = 1;
 let cgs = {};
 
+export function _resetCache()
+{
+	index = 1;
+	cgs = {};
+}
+
 export function parse(str: RegExp): Match
 export function parse(str: string): Match
 export function parse(str: string | RegExp): Match
@@ -21,8 +27,7 @@ export function parse(str: string | RegExp): Match
 		throw ex;
 	}
 	//capture group index
-	index = 1;
-	cgs = {};
+	_resetCache();
 	return parser(str);
 }
 

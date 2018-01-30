@@ -1,3 +1,4 @@
+export declare function _resetCache(): void;
 export declare function parse(str: RegExp): Match;
 export declare function parse(str: string): Match;
 export declare namespace types {
