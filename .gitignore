@@ -16,5 +16,7 @@ node_modules
 /src/compile.d.ts
 /src/compile.js
 /test/*.d.ts
-/test/*.test.js
+/test/*.js
 /test/_local-dev.js
+
+!/test/expressions.js

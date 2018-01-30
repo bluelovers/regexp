@@ -10,11 +10,17 @@ Regex parser based on descriptions in http://www.javascriptkit.com/javatutors/re
 
 ## Usage
 
+- other [demo](test/demo.ts)
+
 ```ts
 var regexp = require('regexp2').parse;
 var res = regexp('[a-z]+');
 
 import regexp from 'regexp2';
+var res = regexp(/[a-z]+/);
+
+import { parse } from 'regexp2';
+const regexp = parse;
 var res = regexp(/[a-z]+/);
 ```
 

@@ -35,6 +35,9 @@ var types;
     types.UNICODE = 'unicode';
     types.HEX = 'hex';
     types.OCTAL = 'octal';
+    types.NEGATIVE_LOOKAHEAD = 'negative-lookahead';
+    types.POSITIVE_LOOKAHEAD = 'positive-lookahead';
+    types.NON_CAPTURE_GROUP = 'non-capture-group';
 })(types = exports.types || (exports.types = {}));
 class Token {
     constructor(type, obj) {
@@ -68,6 +71,19 @@ class Group extends Token {
     constructor(type, body) {
         super(type);
         this.body = body;
+    }
+    toString() {
+        switch (this.type) {
+            case types.NON_CAPTURE_GROUP:
+                return '(?:' + this.text + ')';
+            case types.POSITIVE_LOOKAHEAD:
+                return '(?=' + this.text + ')';
+            case types.NEGATIVE_LOOKAHEAD:
+                return '(?!' + this.text + ')';
+            case types.CAPTURE_GROUP:
+                return '(' + this.text + ')';
+        }
+        return super.toString();
     }
 }
 exports.Group = Group;

@@ -15,6 +15,9 @@ export declare namespace types {
     const UNICODE = "unicode";
     const HEX = "hex";
     const OCTAL = "octal";
+    const NEGATIVE_LOOKAHEAD = "negative-lookahead";
+    const POSITIVE_LOOKAHEAD = "positive-lookahead";
+    const NON_CAPTURE_GROUP = "non-capture-group";
 }
 export declare class Token {
     type: string;
@@ -39,6 +42,7 @@ export declare class Match extends Token {
 export declare class Group extends Token {
     body: Token[];
     constructor(type: any, body?: any);
+    toString(): string;
 }
 export declare class CaptureGroup extends Group {
     index: number;

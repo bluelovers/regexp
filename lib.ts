@@ -47,6 +47,11 @@ export namespace types
 	export const UNICODE = 'unicode';
 	export const HEX = 'hex';
 	export const OCTAL = 'octal';
+
+	export const NEGATIVE_LOOKAHEAD = 'negative-lookahead';
+	export const POSITIVE_LOOKAHEAD = 'positive-lookahead';
+	export const NON_CAPTURE_GROUP = 'non-capture-group';
+
 }
 
 export class Token
@@ -109,6 +114,23 @@ export class Group extends Token
 		super(type);
 
 		this.body = body;
+	}
+
+	toString()
+	{
+		switch (this.type)
+		{
+			case types.NON_CAPTURE_GROUP:
+				return '(?:' + this.text + ')';
+			case types.POSITIVE_LOOKAHEAD:
+				return '(?=' + this.text + ')';
+			case types.NEGATIVE_LOOKAHEAD:
+				return '(?!' + this.text + ')';
+			case types.CAPTURE_GROUP:
+				return '(' + this.text + ')';
+		}
+
+		return super.toString();
 	}
 }
 
