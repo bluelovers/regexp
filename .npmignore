@@ -1,2 +1,5 @@
 src
 .travis.yml
+/.idea/
+/src/
+/test/

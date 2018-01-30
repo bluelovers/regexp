@@ -1,7 +1,7 @@
 {
-  "name": "regexp",
+  "name": "regexp2",
   "version": "1.0.0",
-  "description": "Regex Parser",
+  "description": "Regex Parser (fork from regexp)",
   "keywords": [],
   "dependencies": {},
   "devDependencies": {
@@ -10,13 +10,22 @@
     "bash-color": "0.0.3"
   },
   "scripts": {
+    "build": "ts-node src/compile.ts",
     "test": "node test/index.js",
     "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ForbesLindesay/regexp.git"
+    "url": "git+https://github.com/ForbesLindesay/regexp.git"
   },
   "author": "ForbesLindesay",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ForbesLindesay/regexp/issues"
+  },
+  "homepage": "https://github.com/ForbesLindesay/regexp#readme",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  }
 }

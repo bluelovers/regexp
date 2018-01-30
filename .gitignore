@@ -11,4 +11,7 @@ logs
 results
 npm-debug.log
 node_modules
-/index.js
+/package-lock.json
+/.idea/
+/src/compile.d.ts
+/src/compile.js
