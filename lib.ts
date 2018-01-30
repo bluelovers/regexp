@@ -121,7 +121,7 @@ export class Group extends Token
 		switch (this.type)
 		{
 			case types.NON_CAPTURE_GROUP:
-				return '(?:' + this.text + ')';
+				return '(' + this.text + ')';
 			case types.POSITIVE_LOOKAHEAD:
 				return '(?=' + this.text + ')';
 			case types.NEGATIVE_LOOKAHEAD:

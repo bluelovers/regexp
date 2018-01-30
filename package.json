@@ -1,8 +1,31 @@
 {
   "name": "regexp2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Regex Parser (fork from regexp)",
-  "keywords": [],
+  "keywords": [
+    "big5",
+    "charset",
+    "check",
+    "euc-jp",
+    "expression",
+    "gb2312",
+    "gbk",
+    "generator",
+    "is",
+    "javascript",
+    "match",
+    "parse",
+    "re",
+    "regex",
+    "regex",
+    "regexp",
+    "regular",
+    "regular expression",
+    "test",
+    "tool",
+    "type",
+    "unicode"
+  ],
   "homepage": "https://github.com/bluelovers/regexp#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/regexp/issues"
