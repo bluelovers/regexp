@@ -45,7 +45,7 @@ class Token {
         this.offset = Token.offset();
         this.text = Token.text();
     }
-    toString() {
+    toString(update) {
         return this.text;
     }
 }
@@ -72,7 +72,7 @@ class Group extends Token {
         super(type);
         this.body = body;
     }
-    toString() {
+    toString(update) {
         switch (this.type) {
             case types.NON_CAPTURE_GROUP:
                 return '(?:' + this.text + ')';
@@ -83,7 +83,7 @@ class Group extends Token {
             case types.CAPTURE_GROUP:
                 return '(' + this.text + ')';
         }
-        return super.toString();
+        return super.toString(update);
     }
 }
 exports.Group = Group;

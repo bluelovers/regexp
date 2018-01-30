@@ -67,7 +67,7 @@ export class Token
 		this.text = Token.text();
 	}
 
-	toString()
+	toString(update?: boolean)
 	{
 		return this.text;
 	}
@@ -116,7 +116,7 @@ export class Group extends Token
 		this.body = body;
 	}
 
-	toString()
+	toString(update?: boolean)
 	{
 		switch (this.type)
 		{
@@ -130,7 +130,7 @@ export class Group extends Token
 				return '(' + this.text + ')';
 		}
 
-		return super.toString();
+		return super.toString(update);
 	}
 }
 

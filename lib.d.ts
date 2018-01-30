@@ -24,7 +24,7 @@ export declare class Token {
     offset: number;
     text: string;
     constructor(type: string, obj?: any);
-    toString(): string;
+    toString(update?: boolean): string;
 }
 export declare namespace Token {
     let offset: () => number;
@@ -42,7 +42,7 @@ export declare class Match extends Token {
 export declare class Group extends Token {
     body: Token[];
     constructor(type: any, body?: any);
-    toString(): string;
+    toString(update?: boolean): string;
 }
 export declare class CaptureGroup extends Group {
     index: number;
