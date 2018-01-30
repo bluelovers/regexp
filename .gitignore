@@ -15,3 +15,6 @@ node_modules
 /.idea/
 /src/compile.d.ts
 /src/compile.js
+/test/*.d.ts
+/test/*.test.js
+/test/_local-dev.js

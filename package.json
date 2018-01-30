@@ -1,6 +1,6 @@
 {
   "name": "regexp2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Regex Parser (fork from regexp)",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/regexp#readme",
@@ -19,11 +19,10 @@
   },
   "scripts": {
     "build": "node src/compile.js",
-    "test": "node test/index.js"
+    "test": "npx mocha \"!(node_modules)/**/*.+(test|spec).js\""
   },
   "dependencies": {},
   "devDependencies": {
-    "bash-color": "0.0.3",
     "pegjs": "https://github.com/dmajda/pegjs/archive/791034fad92c9cd7a9d1c71187df03441bbfd521.tar.gz",
     "uglify-js": "~2.3.6"
   }
