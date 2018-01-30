@@ -3,29 +3,29 @@
   "version": "1.0.0",
   "description": "Regex Parser (fork from regexp)",
   "keywords": [],
-  "dependencies": {},
-  "devDependencies": {
-    "uglify-js": "~2.3.6",
-    "pegjs": "https://github.com/dmajda/pegjs/archive/791034fad92c9cd7a9d1c71187df03441bbfd521.tar.gz",
-    "bash-color": "0.0.3"
-  },
-  "scripts": {
-    "build": "ts-node src/compile.ts",
-    "test": "node test/index.js",
-    "prepublish": "npm test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ForbesLindesay/regexp.git"
-  },
-  "author": "ForbesLindesay",
-  "license": "MIT",
+  "homepage": "https://github.com/bluelovers/regexp#readme",
   "bugs": {
-    "url": "https://github.com/ForbesLindesay/regexp/issues"
+    "url": "https://github.com/bluelovers/regexp/issues"
   },
-  "homepage": "https://github.com/ForbesLindesay/regexp#readme",
+  "license": "MIT",
+  "author": "ForbesLindesay",
   "main": "index.js",
   "directories": {
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/regexp.git"
+  },
+  "scripts": {
+    "build": "ts-node src/compile.ts",
+    "prepublish": "npm test",
+    "test": "node test/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bash-color": "0.0.3",
+    "pegjs": "https://github.com/dmajda/pegjs/archive/791034fad92c9cd7a9d1c71187df03441bbfd521.tar.gz",
+    "uglify-js": "~2.3.6"
   }
 }
