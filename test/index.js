@@ -4,12 +4,9 @@ var assert = require('assert')
 var color = require('bash-color')
 
 var regex
-try {
-  regex = require('../src/compile.js')
-} catch (ex) {
-  if (ex.code != 'MODULE_NOT_FOUND') throw ex
-  else regex = require('../')
-}
+
+regex = require('../').parse
+
 var expressions = require('./expressions.js')
 
 var all = process.argv[2] === '--all' || process.argv[2] === '-a'

@@ -18,8 +18,7 @@
     "url": "git+https://github.com/bluelovers/regexp.git"
   },
   "scripts": {
-    "build": "ts-node src/compile.ts",
-    "prepublish": "npm test",
+    "build": "node src/compile.js",
     "test": "node test/index.js"
   },
   "dependencies": {},
