@@ -8,9 +8,15 @@ Regex parser based on descriptions in http://www.javascriptkit.com/javatutors/re
 
 ## Usage
 
-```js
-var regexp = require('regexp').parse
-var res = regexp('[a-z]+')
+```ts
+var regexp = require('regexp2').parse;
+var res = regexp('[a-z]+');
+
+import regexp from 'regexp2';
+var res = regexp(/[a-z]+/);
+```
+
+```ts
 assert.deepEqual(res, { type: 'match',
   offset: 0,
   text: '[a-z]+',
