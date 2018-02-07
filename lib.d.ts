@@ -11,6 +11,7 @@ export declare namespace types {
     const QUANTIFIER = "quantifier";
     const CHARSET = "charset";
     const RANGE = "range";
+    const CHARSET_RANGE = "range";
     const LITERAL = "literal";
     const UNICODE = "unicode";
     const HEX = "hex";
@@ -63,16 +64,22 @@ export declare class CharSet extends Token {
     invert: any;
     body: (Literal | CharacterRange)[];
     constructor(invert: any, body: any);
+    toString(update?: boolean): string;
 }
 export declare class CharacterRange extends Token {
     start: Literal;
     end: Literal;
+    body?: Literal[];
     constructor(start: Literal, end: Literal);
+    setBody(arr: Array<Literal | string>): this;
+    toString(update?: boolean): string;
+    inspect(): string;
 }
 export declare class Literal extends Token {
     body: string;
-    escaped: boolean;
-    constructor(body: string);
+    constructor(body: string, text?: string | true);
+    readonly escaped: boolean;
+    inspect(): string;
 }
 export declare class TokenChar extends Token {
     code: string;

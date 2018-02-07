@@ -1,6 +1,6 @@
 {
   "name": "regexp2",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Regex Parser (fork from regexp)",
   "keywords": [
     "big5",
@@ -17,7 +17,6 @@
     "parse",
     "re",
     "regex",
-    "regex",
     "regexp",
     "regular",
     "regular expression",
@@ -30,15 +29,15 @@
   "bugs": {
     "url": "https://github.com/bluelovers/regexp/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/regexp.git"
+  },
   "license": "MIT",
   "author": "ForbesLindesay",
   "main": "index.js",
   "directories": {
     "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bluelovers/regexp.git"
   },
   "scripts": {
     "build": "node src/compile.js",

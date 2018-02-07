@@ -31,6 +31,7 @@ var types;
     types.QUANTIFIER = 'quantifier';
     types.CHARSET = 'charset';
     types.RANGE = 'range';
+    types.CHARSET_RANGE = types.RANGE;
     types.LITERAL = 'literal';
     types.UNICODE = 'unicode';
     types.HEX = 'hex';
@@ -118,6 +119,16 @@ class CharSet extends Token {
         this.invert = invert;
         this.body = body;
     }
+    toString(update) {
+        if (update) {
+            let text = '';
+            for (let a of this.body) {
+                text += a.toString();
+            }
+            return `[${text}]`;
+        }
+        return super.toString(update);
+    }
 }
 exports.CharSet = CharSet;
 class CharacterRange extends Token {
@@ -126,13 +137,56 @@ class CharacterRange extends Token {
         this.start = start;
         this.end = end;
     }
+    setBody(arr) {
+        let body_new = [];
+        for (let s of arr) {
+            if (typeof s == 'string') {
+                body_new.push(new Literal(s, true));
+            }
+            else if (s instanceof Literal) {
+                body_new.push(s);
+            }
+            else {
+                throw new RangeError();
+            }
+        }
+        if (!body_new.length) {
+            throw new ReferenceError();
+        }
+        this.body = body_new;
+        this.start = this.body[0];
+        this.end = this.body[this.body.length - 1];
+        this.text = this.toString(true);
+        return this;
+    }
+    toString(update) {
+        if (update && this.body) {
+            let text = '';
+            for (let a of this.body) {
+                text += a.toString();
+            }
+            return text;
+        }
+        return super.toString(update);
+    }
+    inspect() {
+        return `CharacterRange(${this.start}-${this.end})`;
+    }
 }
 exports.CharacterRange = CharacterRange;
 class Literal extends Token {
-    constructor(body) {
+    constructor(body, text = null) {
         super(types.LITERAL);
+        if (typeof text == 'string' || text === true) {
+            this.text = typeof text == 'string' ? text : body;
+        }
         this.body = body;
-        this.escaped = this.body != this.text;
+    }
+    get escaped() {
+        return this.body != this.text;
+    }
+    inspect() {
+        return `Literal(${this.text})`;
     }
 }
 exports.Literal = Literal;

@@ -42,6 +42,7 @@ export namespace types
 	export const QUANTIFIER = 'quantifier';
 	export const CHARSET = 'charset';
 	export const RANGE = 'range';
+	export const CHARSET_RANGE = RANGE;
 	export const LITERAL = 'literal';
 
 	export const UNICODE = 'unicode';
@@ -189,12 +190,31 @@ export class CharSet extends Token
 		this.invert = invert;
 		this.body = body;
 	}
+
+	toString(update?: boolean)
+	{
+		if (update)
+		{
+			let text = '';
+
+			for (let a of this.body)
+			{
+				text += a.toString();
+			}
+
+			return `[${text}]`;
+		}
+
+		return super.toString(update);
+	}
 }
 
 export class CharacterRange extends Token
 {
 	public start: Literal;
 	public end: Literal;
+
+	public body?: Literal[];
 
 	constructor(start: Literal, end: Literal)
 	{
@@ -203,19 +223,90 @@ export class CharacterRange extends Token
 		this.start = start;
 		this.end = end;
 	}
+
+	setBody(arr: Array<Literal | string>)
+	{
+		let body_new: Literal[] = [];
+
+		for (let s of arr)
+		{
+			//console.log(s);
+			if (typeof s == 'string')
+			{
+				body_new.push(new Literal(s, true));
+			}
+			else if (s instanceof Literal)
+			{
+				body_new.push(s);
+			}
+			else
+			{
+				throw new RangeError();
+			}
+		}
+
+		if (!body_new.length)
+		{
+			throw new ReferenceError();
+		}
+
+		this.body = body_new;
+
+		this.start = this.body[0];
+		this.end = this.body[this.body.length - 1];
+
+		this.text = this.toString(true);
+
+		return this;
+	}
+
+	toString(update?: boolean)
+	{
+		if (update && this.body)
+		{
+			let text = '';
+
+			for (let a of this.body)
+			{
+				text += a.toString();
+			}
+
+			return text;
+		}
+
+		return super.toString(update);
+	}
+
+	inspect()
+	{
+		return `CharacterRange(${this.start}-${this.end})`;
+	}
 }
 
 export class Literal extends Token
 {
 	public body: string;
-	public escaped: boolean;
 
-	constructor(body: string)
+	constructor(body: string, text: string | true = null)
 	{
 		super(types.LITERAL);
 
+		if (typeof text == 'string' || text === true)
+		{
+			this.text = typeof text == 'string' ? text : body;
+		}
+
 		this.body = body;
-		this.escaped = this.body != this.text;
+	}
+
+	get escaped(): boolean
+	{
+		return this.body != this.text;
+	}
+
+	inspect()
+	{
+		return `Literal(${this.text})`;
 	}
 }
 
