@@ -197,6 +197,11 @@ export class CharSet extends Token
 		{
 			let text = '';
 
+			if (this.invert)
+			{
+				text += '^';
+			}
+
 			for (let a of this.body)
 			{
 				text += a.toString();

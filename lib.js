@@ -122,6 +122,9 @@ class CharSet extends Token {
     toString(update) {
         if (update) {
             let text = '';
+            if (this.invert) {
+                text += '^';
+            }
             for (let a of this.body) {
                 text += a.toString();
             }
