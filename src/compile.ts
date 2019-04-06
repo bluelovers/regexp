@@ -1,8 +1,8 @@
 'use strict'
 
-const fs = require('fs')
-const peg = require('pegjs')
-const uglify = require('uglify-js')
+import fs = require('fs')
+import peg = require('pegjs')
+import uglify = require('uglify-js')
 
 let index = fs.readFileSync(__dirname + '/index.js', 'utf8')
 let parser = peg.buildParser(fs.readFileSync(__dirname + '/grammer.pegjs', 'utf8'), {

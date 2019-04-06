@@ -2,7 +2,7 @@
  * Created by user on 2018/1/30/030.
  */
 
-import parser from './grammer';
+import { parse as parser } from './grammer';
 
 let index = 1;
 let cgs = {};
@@ -367,5 +367,4 @@ export class ControlCharacter extends TokenChar
 	}
 }
 
-import * as self from './lib';
-export default self;
+export default exports as typeof import('./lib');

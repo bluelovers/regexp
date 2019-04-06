@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/1/30/030.
+ */
 export declare function _resetCache(): void;
 export declare function parse(str: RegExp): Match;
 export declare function parse(str: string): Match;
@@ -100,5 +103,5 @@ export declare class BackReference extends TokenChar {
 export declare class ControlCharacter extends TokenChar {
     constructor(code: string);
 }
-import * as self from './lib';
-export default self;
+declare const _default: typeof import("./lib");
+export default _default;

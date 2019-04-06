@@ -1,6 +1,6 @@
 {
   "name": "regexp2",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Regex Parser (fork from regexp)",
   "keywords": [
     "big5",
@@ -45,7 +45,10 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.1",
+    "@types/node": "^11.13.0",
     "pegjs": "https://github.com/dmajda/pegjs/archive/791034fad92c9cd7a9d1c71187df03441bbfd521.tar.gz",
+    "terser": "^3.17.0",
     "uglify-js": "~2.3.6"
   }
 }
